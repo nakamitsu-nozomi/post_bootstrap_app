@@ -31,12 +31,7 @@ body {
   padding-top: 56px;
 }
 
-div.field_with_errors {
-  display: contents;
-  input {
-    border: 2px solid red;
-  }
-}
+
 
 // テーブル
 th,
@@ -53,4 +48,11 @@ td{
 }
 .alert-alert{
   @extend .alert-danger;
+}
+div.field_with_errors {
+  display: contents;
+  input,
+  textarea {
+    @extend .is-invalid;
+  }
 }
