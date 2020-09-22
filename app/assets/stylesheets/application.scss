@@ -21,6 +21,12 @@
  @import "@fortawesome/fontawesome-free/scss/solid";
  @import "@fortawesome/fontawesome-free/scss/brands";
  
+// 共通
+.base-container{
+  @extend .container-fluid;
+  max-width: var(--breakpoint-lg);
+  padding: 30px 15px;
+}
 
 div.field_with_errors {
   display: contents;
