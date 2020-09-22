@@ -38,3 +38,11 @@ div.field_with_errors {
   }
 }
 
+// テーブル
+th,
+td{
+  vertical-align: middle !important;
+}
+.break-word{
+  word-break: break-word;
+}
