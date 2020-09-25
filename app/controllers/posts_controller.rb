@@ -2,7 +2,8 @@ class PostsController < ApplicationController
  before_action :set_post, only: %i[show edit update destroy]
  before_action :move_to_index,except: :index
   def index
-    @posts=Post.order(id: :asc)
+    #@posts=Post.order(id: :asc)
+    @posts=Post.all
   end
 
   def show
