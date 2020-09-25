@@ -4,6 +4,7 @@
     <thead class="table-primary">
       <tr>
         <th scope="col">NO.</th>
+        <th scope="col">ニックネーム</th>
         <th scope="col" class="w-100">タイトル</th>
         <th scope="col"></th>
       </tr>
@@ -12,6 +13,7 @@
       <% @posts.each.with_index(1) do |post,i|%>
       <tr>
         <th scope="row" class="text-right"><%= i %></th>
+        <td class="break-word"><%= post.user.nickname %></td>
         <td class="break-word"><%= post.title %></td>
         <td class="text-nowrap">
           <%= link_to post,class: "btn btn-primary" do %>
