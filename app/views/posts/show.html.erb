@@ -6,5 +6,9 @@
 <div class="card-body">
   <p class="card-text"><%= simple_format(h @post.content) %></p>
 </div>
+<div class="card-body">
+<% if @post.image? %>
+  <p class="card-text"><%= image_tag @post.image.url %></p>
+<% end %>
+</div>
 </section>
-
