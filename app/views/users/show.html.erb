@@ -1,0 +1,11 @@
+<h1><%=@user.nickname%>のマイページ</h1>
+<section class="card border-dark mt-5">
+<% @user.posts.each do |post| %>
+<div class="card-header">
+  <h4><%= post.title %></h4>
+</div>
+<div class="card-body">
+  <p class="card-text"><%= simple_format(h post.content) %></p>
+</div>
+<% end %>
+</section>

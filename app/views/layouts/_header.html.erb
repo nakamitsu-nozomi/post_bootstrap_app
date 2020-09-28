@@ -5,8 +5,17 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+    <% if user_signed_in? %>
+      <%= link_to 'ログアウト', destroy_user_session_path,method: :delete, class: "nav-item nav-link active"%>
       <%= link_to "投稿一覧", posts_path, class: "nav-item nav-link active" %>
       <%= link_to "新規投稿", new_post_path, class: "nav-item nav-link active" %>
+      <%= link_to "マイページ",user_path(current_user.id), class: "nav-item nav-link active" %>
+       <%= link_to "友達検索", users_search_path, class: "nav-item nav-link active" %>
+    <% else %>
+      <%= link_to 'ログイン',  new_user_session_path, class: "nav-item nav-link active"%>
+      <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active"%>
+    <% end %>
+      
     </div>
   </div>
 </nav>

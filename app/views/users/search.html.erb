@@ -1,0 +1,21 @@
+<%= form_tag("/users/search",method: :get) do%>
+  <%= label_tag :友達検索%>
+  <%= text_field_tag :search_nickname%>
+  <%= submit_tag "検索"%>
+<% end %>
+<hr>
+<table>
+  <tbody>
+    <thead>
+      <tr>
+        <th>ニックネーム</th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.nickname %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

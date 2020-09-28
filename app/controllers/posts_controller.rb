@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
  before_action :set_post, only: %i[show edit update destroy]
+ before_action :move_to_index,except: :index
   def index
     @posts=Post.order(id: :asc)
   end
@@ -12,13 +13,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.create(title: post_params[:title],content: post_params[:content],user_id: current_user.id,image: post_params[:image])
     if @post.save
       redirect_to @post,notice: "投稿しました"
     else
       flash.now[:alert]="投稿に失敗しました"
       render :new
-    end    
+    end
   end
 
   def edit
@@ -26,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
+    @post.update(title: post_params[:title],content: post_params[:content],user_id: current_user.id,image: post_params[:image])
     if @post.save
       redirect_to @post,notice: "更新しました"
     else
@@ -40,6 +41,11 @@ class PostsController < ApplicationController
     redirect_to root_path,alert: "削除しました"
   end
 
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end  
+
   private
 
   def set_post
@@ -47,6 +53,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:content)
+    params.require(:post).permit(:title,:content,:image)
   end 
 end
