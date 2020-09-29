@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
- before_action :set_post, only: %i[show edit update destroy]
+ before_action :set_post, only: %i[show]
+before_action :limit_current_user, only: %i[edit update destroy]
  before_action :move_to_index,except: :index
   def index
     @posts=Post.order(id: :asc).includes(:user)
@@ -54,5 +55,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title,:content,:image)
-  end 
+  end
+
+  def limit_current_user
+    @post= current_user.posts.find(params[:id])
+  end  
 end
