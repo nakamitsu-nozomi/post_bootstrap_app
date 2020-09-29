@@ -58,6 +58,6 @@ before_action :limit_current_user, only: %i[edit update destroy]
   end
 
   def limit_current_user
-    @post= current_user.posts.find(params[:id])
+    @post= current_user.posts.find_by(id: params[:id])
   end  
 end
