@@ -8,18 +8,10 @@
 </div>
 <div class="card-body">
 <% if @post.image? %>
-  <p class="card-text"><%= image_tag @post.image.url %></p>
+  < class="card-text"><%= image_tag @post.image.url %></>
 <% end %>
 <div class="card-body">
-  <% if @post.liked_by?(current_user) %>
-    # いいね済の状態にする 
-<p><i class="fas fa-heart heart_red"></i></p>
-    
-  
-  <% else %>
-  <p>  <i class="fas fa-heart heart_blue"></i> </p>
-  
-  <% end %>
+  <%= render 'like' %>
 </div>
 </div>
 </section>
