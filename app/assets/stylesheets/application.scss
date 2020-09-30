@@ -56,3 +56,11 @@ div.field_with_errors {
     @extend .is-invalid;
   }
 }
+
+// いいね
+#good{
+  color: #FF0080
+}
+#not_good{
+  color:#fff
+}

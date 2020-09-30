@@ -10,5 +10,13 @@
 <% if @post.image? %>
   <p class="card-text"><%= image_tag @post.image.url %></p>
 <% end %>
+<div class="card-body">
+  <% if @post.liked_by?(current_user) %>
+    # いいね済の状態にする 
+    <i class="fas fa-heart"></i>
+  <% else %>
+    <i class="fas fa-heart"></i>
+  <% end %>
+</div>
 </div>
 </section>
