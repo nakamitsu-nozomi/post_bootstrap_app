@@ -1,11 +1,4 @@
-  <% if @post.liked_by?(current_user) %>
-   <%# いいね済にする %>
-    <%= link_to post_likes_path(@post),method: :delete do  %>
+ <%# いいね済にする %>
+    <%= link_to post_likes_path(post),method: :delete,remote: true do  %>
       <i class="fas fa-heart heart_red"></i>
     <% end %>
-  <% else %>
-   <%# いいね無にする %>
-    <%= link_to post_likes_path(@post),method: :post do  %>
-      <i class="fas fa-heart heart_blue"></i>
-    <% end %>
-  <% end %>

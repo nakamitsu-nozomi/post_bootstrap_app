@@ -7,11 +7,16 @@
   <p class="card-text"><%= simple_format(h @post.content) %></p>
 </div>
 <div class="card-body">
-<% if @post.image? %>
-  < class="card-text"><%= image_tag @post.image.url %></>
-<% end %>
-<div class="card-body">
-  <%= render 'like' %>
-</div>
+  <% if @post.image? %>
+    <p class="card-text"><%= image_tag @post.image.url %></p>
+  <% end %>
+  <%# いいね機能 %>
+  <p id="post-<%= @post.id %>">
+    <% if @post.liked_by?(current_user) %>
+      <%= render "like", post: @post %>
+    <% else %>
+    <%= render "dislike",post: @post %>
+    <% end %>
+  </p>
 </div>
 </section>
