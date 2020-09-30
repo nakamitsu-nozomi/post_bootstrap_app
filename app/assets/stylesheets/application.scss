@@ -58,9 +58,9 @@ div.field_with_errors {
 }
 
 // いいね
-#good{
-  color: #FF0080
+.heart_red{
+  color: #FF0080 ;
 }
-#not_good{
-  color:#fff
+.heart_blue{
+  color:#5279E7;
 }
