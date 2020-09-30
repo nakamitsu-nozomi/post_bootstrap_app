@@ -3,6 +3,7 @@ ja:
   activerecord:
     models:
       post: メッセージ
+      like: いいね
     attributes:
       post:
         title: タイトル

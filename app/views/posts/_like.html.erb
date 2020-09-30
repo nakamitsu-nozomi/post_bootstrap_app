@@ -1,0 +1,5 @@
+ <%# いいね済にする %>
+    <%= link_to post_likes_path(post),method: :delete,remote: true do  %>
+      <i class="fas fa-heart heart_red"></i>
+    <% end %>
+    <%= post.likes_count%>
