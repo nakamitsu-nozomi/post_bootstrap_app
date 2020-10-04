@@ -13,20 +13,21 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
- $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
- @import "@fortawesome/fontawesome-free/scss/fontawesome";
- @import "@fortawesome/fontawesome-free/scss/regular";
- @import "@fortawesome/fontawesome-free/scss/solid";
- @import "@fortawesome/fontawesome-free/scss/brands";
- 
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
+
 // 共通
-.base-container{
+.base-container {
   @extend .container-fluid;
   max-width: var(--breakpoint-lg);
   padding: 30px 15px;
 }
+
 body {
   padding-top: 56px;
 }
@@ -35,22 +36,26 @@ body {
 
 // テーブル
 th,
-td{
+td {
   vertical-align: middle !important;
 }
-.break-word{
+
+.break-word {
   word-break: break-word;
 }
 
 // フラッシュ
-.alert-notice{
+.alert-notice {
   @extend .alert-success;
 }
-.alert-alert{
+
+.alert-alert {
   @extend .alert-danger;
 }
+
 div.field_with_errors {
   display: contents;
+
   input,
   textarea {
     @extend .is-invalid;
@@ -58,9 +63,15 @@ div.field_with_errors {
 }
 
 // いいね
-.heart_red{
-  color: #FF0080 ;
+.heart_red {
+  color: #FF0080;
 }
-.heart_blue{
-  color:#5279E7;
+
+.heart_blue {
+  color: #5279E7;
+}
+
+// 投稿一覧
+.card-img-top {
+  text-align: center;
 }
