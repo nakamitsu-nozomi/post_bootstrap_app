@@ -1,15 +1,15 @@
 <h1><%=@user.nickname%>のマイページ</h1>
-<section class="card border-dark mt-5">
+
 <% @user.posts.each do |post| %>
-<div class="card-header">
-  <h4><%= @user.nickname %></h4>
-</div>
-<div class="card-body">
-<% if post.image? %>
-    <p class="card-text"><%= image_tag post.image.url %></p>
+<section class="card border-dark mt-5 mx-auto" style="width: 400px;">
+  <div class="card-header">
+    <h4><%= @user.nickname %></h4>
+  </div>
+  <% if post.image? %>
+    <div class="card-img-top"><%= image_tag post.image.url %></div>
+  <% end %>
+  <div class="card-body">
     <p class="card-text"><%= simple_format(h post.content) %></p>
-<% end %>
- 
-</div>
-<% end %>
+  </div>
 </section>
+<% end %>
