@@ -2,10 +2,14 @@
 <section class="card border-dark mt-5">
 <% @user.posts.each do |post| %>
 <div class="card-header">
-  <h4><%= post.title %></h4>
+  <h4><%= @user.nickname %></h4>
 </div>
 <div class="card-body">
-  <p class="card-text"><%= simple_format(h post.content) %></p>
+<% if post.image? %>
+    <p class="card-text"><%= image_tag post.image.url %></p>
+    <p class="card-text"><%= simple_format(h post.content) %></p>
+<% end %>
+ 
 </div>
 <% end %>
 </section>

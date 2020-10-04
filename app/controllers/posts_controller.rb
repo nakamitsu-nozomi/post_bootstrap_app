@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
  before_action :set_post, only: %i[show]
-before_action :limit_current_user, only: %i[edit update destroy]
+ before_action :limit_current_user, only: %i[edit update destroy]
  before_action :move_to_index,except: :index
   def index
     @posts=Post.order(id: :asc).includes(:user)
