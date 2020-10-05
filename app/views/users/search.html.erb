@@ -13,7 +13,7 @@
     </thead>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.nickname %></td>
+        <td><%= link_to "#{user.nickname}", user_path(user.user) %></td>
       </tr>
     <% end %>
   </tbody>
