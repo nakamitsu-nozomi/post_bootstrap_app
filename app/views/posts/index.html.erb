@@ -1,71 +1,52 @@
 <h1>投稿一覧</h1>
 
-
-<% @posts.each do |post|%>
-  <section class="card border-dark mt-5 mx-auto" style="width: 400px;" >
-    <div class="card-header">
-      <h4><%= post.user.nickname %></h4>
-    </div>
-    <% if post.image? %>
-      <div class="card-img-top"><%= image_tag post.image.url %></div>
-    <% end %>
-    <div class="card-body">
-      <p class="card-text"><%= simple_format(h post.content) %></p>
-      <%# いいね機能 %>
-      <p id="post-<%= post.id %>">
-        <% if post.liked_by?(current_user) %>
-          <%= render "like", post: post %>
-        <% else %>
-        <%= render "dislike",post: post %>
-        <% end %>
-      </p>
-    </div>
-  </section>
-<% end %>
-
-
-
-
-
-
-
-
-
 <% if user_signed_in? %>
-  <table class="table table-bordered table-striped mt-4">
-    <thead class="table-primary">
-      <tr>
-        <th scope="col" class="w-50">ニックネーム</th>
-        <th scope="col" class="w-100">タイトル</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each.with_index(1) do |post,i|%>
-      <tr>
-        <th scope="row"><%= post.user.nickname %></th>
-        <td class="break-word"><%= post.title %></td>
-        <td class="text-nowrap">
-          <%= link_to post,class: "btn btn-primary" do %>
-            <i class="fas fa-envelope-open-text "></i><span class="d-none d-md-inline">詳細</span>
+  <% @posts.each do |post|%>
+    <section class="card border-dark mt-5 mx-auto" style="width: 400px;" >
+      <div class="card-header">
+        <h4><%= post.user.nickname %></h4>
+        <%# ナビゲーションバー %>
+        <nav class="navbar navbar-expand-lg navbar-light mx-auto ">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <%= link_to "詳細", post%>
+              </li>
+              <li class="nav-item">
+                <% if post.user_id==current_user.id %>
+                    <%= link_to "編集",edit_post_path(post) %>
+                  <% end %>
+              </li>
+              <li class="nav-item">
+                <% if post.user_id==current_user.id %>
+                    <%= link_to "削除",post,method: :delete,data:{confirm: "削除しますか"} %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <%# 画像表示 %>
+      <% if post.image? %>
+        <div class="card-img-top"><%= image_tag post.image.url %></div>
+      <% end %>
+      <%# 投稿内容表示 %>
+      <div class="card-body">
+        <p class="card-text"><%= simple_format(h post.content) %></p>
+        <%# いいね機能 %>
+        <p id="post-<%= post.id %>">
+          <% if post.liked_by?(current_user) %>
+            <%= render "like", post: post %>
+          <% else %>
+          <%= render "dislike",post: post %>
           <% end %>
-          <% if post.user_id==current_user.id %>
-            <%= link_to edit_post_path(post),class: "btn btn-success" do %>
-             <i class="far fa-edit"></i><span class="d-none d-md-inline">編集</span>
-            <% end %>
-          <% end %>
-          <% if post.user_id==current_user.id %>
-            <%= link_to post,method: :delete,data:{confirm: "削除しますか"},class: "btn btn-danger" do %>
-              <i class="far fa-trash-alt"></i><span class="d-none d-md-inline">削除</span>
-            <%end%> 
-          <% end %>
-
-        </td>
-      </tr>
-      <% end%>
-    </tbody>
-  </table>
+        </p>
+      </div>
+    </section>
+  <% end %>
 <% else %>
   <p>ログインしてください</p>
 <% end %>
- 
