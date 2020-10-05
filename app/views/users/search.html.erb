@@ -5,17 +5,16 @@
 <% end %>
 <hr>
 <table>
+  <thead>
+    <tr>
+    <th>ニックネーム</th>
+    </tr>
+  </thead>
   <tbody>
-    <thead>
-      <tr>
-        <th>ニックネーム</th>
-      </tr>
-    </thead>
     <% @users.each do |user| %>
-      <tr>
+     <tr>
         <td><%= link_to "#{user.nickname}", user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
