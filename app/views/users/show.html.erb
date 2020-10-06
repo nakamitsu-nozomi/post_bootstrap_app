@@ -1,5 +1,6 @@
 <h1><%=@user.nickname%>のマイページ</h1>
-<%= link_to "フォロー", following_user_path(@user) %>
+<%= link_to "following", following_user_path(@user) %>
+<%= link_to "followers", followers_user_path(@user) %>
 <%= render "follow_button", user: @user %>
 <% @user.posts.each do |post| %>
   <section class="card border-dark mt-5 mx-auto" style="width: 400px;">

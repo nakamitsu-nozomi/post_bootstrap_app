@@ -1,8 +1,7 @@
 <% @user.followings.each do |user|%>
   <table>
   <tr>
-    <td> <%= user.nickname %></td>
-    <td><%= link_to "詳細", user_path(user) %></td>
+    <td><%= link_to "#{user.nickname}", user_path(user) %></td>
   </tr>
   </table>
 <% end %>
