@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   end  
   get "users/search", to: "users#search"
   resources :users, only: :show
+  resources :relationships, only:[:create,:destroy]
  
 end
