@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(title: post_params[:title],content: post_params[:content],user_id: current_user.id,image: post_params[:image])
+    @post = Post.create(content: post_params[:content],user_id: current_user.id,image: post_params[:image])
     if @post.save
       redirect_to @post,notice: "投稿しました"
     else
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(title: post_params[:title],content: post_params[:content],user_id: current_user.id,image: post_params[:image])
+    @post.update(content: post_params[:content],user_id: current_user.id,image: post_params[:image])
     if @post.save
       redirect_to @post,notice: "更新しました"
     else
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title,:content,:image)
+    params.require(:post).permit(:content,:image)
   end
 
   def limit_current_user
