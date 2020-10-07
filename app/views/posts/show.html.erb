@@ -2,6 +2,7 @@
 
 <section class="card border-dark mt-5 mx-auto" style="width: 400px;" >
 <div class="card-header">
+  <%= image_tag @post.user.user_icon.url,size: "50x50",class: "icon" %>
   <h4><%= @post.user.nickname %></h4>
 </div>
 <% if @post.image? %>

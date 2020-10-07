@@ -1,8 +1,5 @@
 <h1><%=@user.nickname%>のマイページ</h1>
-
-<% if @user.user_icon? %>
-  <p><%= image_tag @user.user_icon.url %></p>
-<% end %>
+<%= image_tag @user.user_icon.url,size: "200x200",class: "icon" %>
 
 <%= link_to "#{@user.followings.count} followings", following_user_path(@user) %>
 <%= link_to "#{@user.followers.count} followers", followers_user_path(@user) %>
@@ -11,6 +8,7 @@
 <% @user.posts.each do |post| %>
   <section class="card border-dark mt-5 mx-auto" style="width: 400px;">
     <div class="card-header">
+      <%= image_tag @user.user_icon.url,size: "50x50",class: "icon" %>
       <h4><%= @user.nickname %></h4>
       <%# ナビーゲーションバー %>
       <nav class="navbar navbar-expand-lg navbar-light mx-auto ">
