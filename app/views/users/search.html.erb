@@ -1,20 +1,13 @@
-<%= form_tag("/users/search",method: :get) do%>
-  <%= label_tag :友達検索%>
-  <%= text_field_tag :search_nickname%>
-  <%= submit_tag "検索"%>
-<% end %>
-<hr>
+
 <table>
   <thead>
-    <tr>
-    <th>ニックネーム</th>
-    </tr>
-  </thead>
-  <tbody>
+    <tbody>
     <% @users.each do |user| %>
      <tr>
+        <td><%= image_tag user.user_icon.url,size: "50x50",class: "icon" %></td>
         <td><%= link_to "#{user.nickname}", user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
+  </thead>
 </table>
