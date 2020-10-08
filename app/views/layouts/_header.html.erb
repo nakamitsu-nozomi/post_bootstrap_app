@@ -6,10 +6,11 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
     <div class="navbar-nav">
     <% if user_signed_in? %>
-      <%= form_tag("/users/search",method: :get, class: "nav-item nav-link active") do%>
+      <%= form_tag("/users/search",method: :get, class: "nav-item nav-link active ") do%>
         <%= label_tag :友達検索%>
         <%= text_field_tag :search_nickname %><button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
       <% end %>
+
       <%= link_to posts_path, class: "nav-item nav-link active"  do %>
         <i class="fas fa-home fa-2x"></i>
       <% end %>
