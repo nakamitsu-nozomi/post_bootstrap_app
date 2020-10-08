@@ -1,35 +1,38 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color:#ffd803;">
   <span class="navbar-brand">instagram</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
     <div class="navbar-nav">
     <% if user_signed_in? %>
-
       <%= form_tag("/users/search",method: :get, class: "nav-item nav-link active") do%>
         <%= label_tag :友達検索%>
         <%= text_field_tag :search_nickname%>
-        <%= submit_tag "検索"%>
+        <%= submit_tag "search"%>
       <% end %>
-
-      <%= link_to 'ログアウト', destroy_user_session_path,method: :delete, class: "nav-item nav-link active"%>
       <%= link_to posts_path, class: "nav-item nav-link active"  do %>
-        <i class="fas fa-home"></i>
+        <i class="fas fa-home fa-2x"></i>
       <% end %>
+
       <%= link_to  new_post_path, class: "nav-item nav-link active"  do %>
-        <i class="fas fa-edit"></i>
-      <% end %>
-      <%= link_to "マイページ",user_path(current_user.id), class: "nav-item nav-link active" %>
-      <%= link_to  user_path(current_user.id), class: "nav-item nav-link active"  do %>
-        <i class="fas fa-user"></i>
+        <i class="fas fa-edit fa-2x"></i>
       <% end %>
 
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= image_tag current_user.user_icon.url,size: "40x40",class: "icon" %>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "マイページ",user_path(current_user.id), class:"dropdown-item" %>
+          <%= link_to 'ログアウト', destroy_user_session_path,method: :delete, class:"dropdown-item"%>
+        </div>
+      </div>
+    
 
 
-      
-      <%= link_to "友達検索", users_search_path, class: "nav-item nav-link active" %>
-      <%= image_tag current_user.user_icon.url,size: "70x70",class: "icon" %>
+
+
 
     <% else %>
       <%= link_to 'ログイン',  new_user_session_path, class: "nav-item nav-link active"%>
