@@ -1,10 +1,15 @@
 <h1><%=@user.nickname%>のマイページ</h1>
 <%= image_tag @user.user_icon.url,size: "200x200",class: "icon" %>
-
-<%= link_to "#{@user.followings.count} followings", following_user_path(@user) %>
-<%= link_to "#{@user.followers.count} followers", followers_user_path(@user) %>
-
+<%= "投稿件数 #{@user.posts.count}件"%>
+<%= link_to "フォロー中 #{@user.followings.count} 人", following_user_path(@user) %>
+<%= link_to "フォロワー#{@user.followers.count} 人", followers_user_path(@user) %>
+<%= link_to "プロフィールを編集",edit_user_registration_path, class: "btn btn-light byn-block text-warning" %>
 <%= render "follow_button", user: @user %>
+
+
+
+
+<%# 投稿一覧 %>
 <% @user.posts.each do |post| %>
   <section class="card border-dark mt-5 mx-auto" style="width: 400px;">
     <div class="card-header">
