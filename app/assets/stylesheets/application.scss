@@ -31,9 +31,37 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 body {
   padding-top: 56px;
   background-color: #fffffe;
+  margin-right: auto; //ここで中央寄せを指定する。
+  margin-left: auto;
+  width: 100%;
 }
 
-// ヘッダー
+// リンク色消す
+.Editlink {
+  text-decoration: none;
+
+  color: #272343 &:link {
+    text-decoration: none;
+    color: #272343
+  }
+
+  &:visited {
+    text-decoration: none;
+    color: #272343
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #272343
+  }
+
+  &:active {
+    text-decoration: none;
+    color: #272343
+  }
+
+}
+
 
 
 
@@ -79,8 +107,63 @@ div.field_with_errors {
   text-align: center;
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+
+
+  li {
+    list-style: none;
+    margin-top: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+
+    &:last-child {
+      margin-left: auto;
+      padding: 0;
+    }
+  }
+}
+
 // ユーザーアイコン
 .icon {
   object-fit: cover;
   border-radius: 50%;
+}
+
+// マイページ
+.top_content {
+  display: flex;
+  margin: 10px 0 10px 0;
+}
+
+.left_content {
+  flex: 1;
+  // background-color: #eee;
+  margin-right: 0;
+  text-align: right;
+}
+
+.right_content {
+  text-align: center;
+  // background-color: #888;
+  width: 50%;
+  margin: 0;
+
+
+  .right_top_content {
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    margin-right: 10px;
+
+  }
+
 }
