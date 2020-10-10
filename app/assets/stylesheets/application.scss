@@ -40,24 +40,26 @@ body {
 .Editlink {
   text-decoration: none;
 
-  color: #272343 &:link {
+  color: #272343;
+
+  &:link {
     text-decoration: none;
-    color: #272343
+    color: #272343;
   }
 
   &:visited {
     text-decoration: none;
-    color: #272343
+    color: #272343;
   }
 
   &:hover {
     text-decoration: none;
-    color: #272343
+    color: #272343;
   }
 
   &:active {
     text-decoration: none;
-    color: #272343
+    color: #272343;
   }
 
 }
@@ -166,4 +168,14 @@ div.field_with_errors {
 
   }
 
+}
+
+// 投稿フォーム
+.post_form {
+  margin-right: 80px;
+  margin-left: 80px;
+
+  .btn-block {
+    background-color: #ffd803;
+  }
 }
