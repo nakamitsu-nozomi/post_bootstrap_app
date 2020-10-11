@@ -21,6 +21,7 @@ gem 'devise'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rails-i18n', '~> 6.0.0'
+gem 'devise-i18n'
 gem 'ransack'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
