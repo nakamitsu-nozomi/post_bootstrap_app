@@ -1,6 +1,7 @@
 <% @user.followings.each do |user|%>
   <table>
   <tr>
+    <td><%= image_tag user.user_icon.url,size: "50x50",class: "icon" %></td>
     <td><%= link_to "#{user.nickname}", user_path(user) %></td>
   </tr>
   </table>
