@@ -180,3 +180,21 @@ div.field_with_errors {
     background-color: #ffd803;
   }
 }
+// topページ（ログインしてないとき）
+
+.app_title {
+  text-align: center;
+  vertical-align: center;
+  color:#ffd803;
+}
+
+.app_top{
+  text-align:center;
+  margin: 0 auto;
+  img{
+  width: 100%;
+   margin: 0;
+   padding: 0;
+  }
+
+}
