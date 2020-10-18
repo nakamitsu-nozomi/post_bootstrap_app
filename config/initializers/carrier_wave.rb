@@ -7,6 +7,6 @@ if Rails.env.production?
       region: ENV['S3_REGION']
     }
     config.fog_directory = ENV['S3_BUCKET']
-    # config.asset_host = "https:// d27q58ugyyn7a7"
+    config.asset_host = "https://d27q58ugyyn7a7"
   end
 end
