@@ -24,6 +24,7 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'devise-i18n'
 gem 'ransack'
 gem 'carrierwave', '~> 2.0'
+gem 'fog-aws'
 gem 'mini_magick'
 
 
